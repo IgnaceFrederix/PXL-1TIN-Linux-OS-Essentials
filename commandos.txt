@@ -1,0 +1,479 @@
+linux
+-------------------------------------------
+commando's to know
+--------------------------------------------------.
+lspci => info opvragen over de hardware van je toestel
+
+ctr + alt + l => lockscreen
+
+sudo shutdown -h now => zet server/pc direct uit
+
+ls => laat zien welke zichtbare mappen er zijn in de map waar je op dat moment bevind
+
+-a => laat ook alle hidden files zien
+-h => laat de grote zien van de bestanden in een normaal cijfer dus altijd zo een klein mogelijk cijfer
+-l => geeft meer detais over het bestaande die je zoekt
+
+cd => gaat naar de plaats die je na de cd plaats bv cd /home/student
+
+pwd => laat het hele pad zien waar je opdat moment bevind bv /home/student
+
+sudo addgroup 'groepsnaam' => voegt een groep toe met de naam die je daar zelf voor kiest
+
+sudo adduser 'gebruikersnaam' 'groepsnaam' => voegt een persoon in een bepaalde groep
+
+sudo deluser 'gebruikersnaam' 'groepsnaam' => verwijderd de persoon uit de groep maar niet de gebruiker zelf
+
+sudo delgroup => verwijderd een groep 
+
+man -k commando => geeft info over het commando dat je wilt
+
+cd - => gaat naar de vorige map	cd .. gaat naar de boveligende map cd ../.. twee mappen boven
+
+cd ~ => gaat naar home directery
+
+mkdir => maakt een map aan
+
+-p maakt nodige sub mappen aan die nogdig zijn om te gebruiken
+
+rm => verwijderd een bestand	rm -rf	 verwijder alle onderstaande bestanden en forseer het(veel gebruikt)
+
+rm - i	vraagt eerste of je het bestnad echt wilt gebruiken(word niet vaak gebruikt) 
+
+rmdir => verwijderd enkel een lege map
+
+ifconfig => geeft info ip adress macadress en netwerk....
+
+cp => copy een bestand en hernoem het
+ls
+cp -i => je kan geen bestanden overschrijven
+
+cp -p => het kopiert ook de rechten van het bestand en ook de datum en tijd waar het origineel bestnad is gemaakt.
+
+touch => maakt een bestand aan
+
+touch -t => veranderd de datum van een bestand(jaar, maand, dag, tijd) 200510251405
+
+mv => verplaats bestand kan ook een naam van een bestand veranderen
+
+rename => veranderd de naam van meerdee bestanden word vooral gebruikt om exetensie van bestaden in  1 keer te veranderen of om van hoofdletters naar kleine letters te gaan bv rename 'y/A-Z/a-z/' *
+rename -n 's/TXT/txt/g' aTXT.TXT => vervangt alle strings TXT door de string txt overal.
+rename 's/.text/.txt/i' * => vernaderd één keer een bestand *.text door *.txt en kijkt niet of het een hoofdletter in zit en hij kijkt daar voor in alle directorys
+(of beter als je een extensie wilt wijzigen dan moet je achter de extense die je wilt hebben een $ typen dus bv *.txt$)
+
+
+file => geef de soort van het bestand dus
+
+head => geef de eerste 10 regels van een bestand
+
+tail => geef de laaste 10 regels van een bestand
+
+head/tail -5 => geef de eerste/laatse 5 regels van het bestand (natuurlijk kan de 5 aangepast worden
+
+cat => geef het volledige bestand weer
+
+cat > "filename.*" => maakt een bestand aan en je kan typen tot dat je ctrl - d doet dan sluit je het bestand af
+
+cat > "filename.*" <<"stopwoord" => je kan zolang typen tot dat je het woord typt dat je na de twee kleinder dan teken hebt getypt
+(ook mogelijk cat <<"stopwoord"> "filename")
+cat "filename.*" > "filename2.*" => kopieert een bestand en veranderd de naam in wat je ingegeven hebt ook de inhoud van het bestand word gekopieert
+
+tac => geeft het bestand omgekeerd weer
+
+more/less => bijde commando's laten grote bestanden zien en begint van de eerste lijn die hij laat zien en met de pijltjes toetsen kan je navigeren
+
+strings => geef een bestand dat normaal niet gemaakt is om te lezen(ascii code) weer in leesbare tekst
+
+ls -lrS => geeft het grootse bestand in een map
+
+echo => print een tekst af. Als je tekst print zonder quates en je dan spaties doet worden overige spaties weggelaten.
+Als je typed met met single of double quates dan worden spaties gerespecteerd dus ook spaties die te veel zijn.
+
+echo -e => als je een \n doet dan kom krijg je na de backslash een enter als je een \t doet dan doet hij een tab. In biede gevallen moet er wel de tekst tussen single of dubble queats bedruitk worden
+
+type => geeft weer waar het commando zich bevind en zegt of het exernal of build in is
+type -a => kan twee waarde geven build in en exteranal
+
+which => geeft het pad waar het commando zich bevind
+
+alias =>je kan een woord gelijk stellen aan een bestaand commando bv alias = dog =tac als je gewoon alias typed krijg je alle aangemaakte aliassen. met dit commando kan je ook een bestaand commando veranderen naar een bestaand commando bv
+alias rm = 'rm -rf'
+
+unalias => hier kan je een alias verwijderen
+
+set => laat al de veriable zijn die zijn opgeslagen op je pc
+je kan laten zien wat de pc doet door set -x te typen als je het terug wilt afzetten doe je set +x
+
+unset => als je een veriable een bepaalde waarde hebt gegeven dan kan je altijd die variabele leeg maken door middel van unset "variable" daarna is je variable terug leef.
+
+; => als je een ; plaats nadat je een commando getyped hebt dan kdan je achter die ; een volgedn commado typen zo kan je meerdere commandos op een lijn typen.
+
+& => als je een & typt na een commando typt dan laat hij je zien wat er op de ahctergrond gebeurd word
+
+$? => als je $? na een commando typt dan zijn er maar twee mogelijke dingen die hij je kan terug geven een bijten de dingen die het commando er voor natuurlijk doet dus een 0 als het commando gelukt is en er geen foutmeldig gegeven is en een 1 als er fout is gebeurd.
+dus bv als jke in je commando een fout hebt getypt.
+
+&& => als je je eerste commando typt en dan && en daarna je tweede commando typt gaat hij enkel iets op het scherm tonen als de beide commandos juist zijn in getypyt. Dus als er een fout zit in een van de twee commodos word er niets uitgevoerd dus ook niet een commando die wel juist is.
+
+|| => als je je eerste commando typt en dan || en daarna je tweede commando typt dan gaat hij kijken of hij het eerste commado sucsescvol kan uitvoeren als dat gaat dan voert hij dat uit en 
+
+ het en doet hij niets met het tweede commando.
+Als het eerste commando een fout geeft dan krijg je een foutmeldig zo als anders maar omdat hij het eerste commando niet heeft kunnen uitvoeren voert hij nu wel het tweede commando uit teminste als dit wel correct is.
+
+(natuurlijk kan je de boveste twee commandos ook combineren in een groot commado bv rm file1 && echo it worked || echo it failed
+hier ga je dus iets verwijderen en iets zeggen hier moeten ze allebij juist zijn om te tonen want als er een niet werkt word er de tweede optie getoond it failed
+
+# => met dit teken kan je tekst toevoegen achter een tekst  zonder dat er door de compter naar gekeken word het is enkel als extra informatie voor de gebruiker.
+
+\ => met een backslash kan je twee dingen doen het eerste is een speciaal teken typen wat anders niet word herkent door de computer dus echo \; voor een punt komma te typen want anders laat hij niet zien.
+de tweede mogelijkheid van een backslash is dat je een groot commado typt in kleinere stukken zodat het overzichtelijker. Dit doet wel niets aan wat je krijgt het is gewoon makkelijker voor de gebruiken dus bv
+ echo This command line \
+is spit is three \
+parts
+geeft het zelfde als 
+echo this command line is not split in three part but still the same
+
+$ => als je een $ teken voor een naam van iets plaats gaat hij niet gewoon de naam afdrukken maar de verwijzigne er naar dus als je doet echo SHELL dan krijgt je gewoon SHELL maar als je typt echo $SHELL dan krijg je /bin/bash.
+Er moet in dat geval wel gelet worden op hoofdletters want als je het typt zonder hoofdletters terwijl het in het geheugen staat met hoofletters dan krijg je niets omdat je verwijst naar niets.
+Ook kan je variable zo afdrukken als je zegt MyVar = 555	echo MyVar dan krijg je gewoon MyVar maar als je typt dan krijg je echo $MyVar dan krijg je 555.
+Hier moet je ook wel oppassen voor quotes want als je typt echo '$MyVar' krijg je gewone tekst $MyVar bij dubble quotes heb je dit probleem niet daar word ook de verwijzing gemaakt maar bij enkele word het gewoon gezien als tekst.
+
+$PS1 => je kan  de termial aan passen //nog commandos toe te voegen
+
+$PATH => het geef de locatie waar de bestande staan waar de commandos in staan die de pc nakijkt elke keer als je een commando intypt.
+
+env => dit commando geef een lijst van alle commandos die je geexporteerd hebt
+
+export => met dit commando kan je een varible gaan exporteren zodat de variable ook geldig is in een andere bash want als je dit niet doet kan je de variable enkel gebruiken in de huidige bash.
+
+${}  =>  als je een variable aanmaakt en je wilt er direcht iest achter plaatsen kan je bv doen zoals prefix=Super echo Hallo ${prefix}man and ${prefix}girl want als je het zonder de haakjes doet dan gaat de pc opzoek naar de volledige varialble naam die dan niet bestaat en dus gewoon een leeg veld geeft.
+
+set -u/set -o nounset => als je een van de twee commandos intypt dan krijg je in elke keer als je een variable intypt die niet bestaat dan krijg je een melding dat de varible niet bestaat maar dan word er ook de rest niet getoond.
+
+set +u/set +o nounset => als je een van de twee intpypt na een van de boveste dan krijg je terug zoals eerst gewoon geen fout melding en toch de rest van uitoer te zien dus wored de foute variable niet door de pc naar gekeken.
+
+$() => je kan door een $() rond bepaalde commandos een andere bash venster nabootsen dit kan handg zijn als je één keer een varialbe wilt aanpassen. bv. echo $(var1=5 ; echo $var1)	5 maar als je nu nog is $var1 zou afdrukken zou je niets krijgen omdat het enkel een waarde heeft binnen de haakjes als je dat toch zou willen moet je een export tussen de haakjes doen.
+
+`` => een ander manier om te je tekst te doen verwijzen naar je variablen is gewoon door door het gebruik van `` met je commado tussen dus bv `var1=5;echo $var1` danb krijg je als uitkomst 5 en dus niet het commando DIT ZIJN GEEN single quotes maar backticks (alt gr onder de µ)
+
+echo $- => geef de huidige bash opties die actief zijn dus als je het normaal invoert dan krijg je himBH maar als je set -C doet en doet dan echo $- dan krijg je himBCH.
+ 
+dev/null => kan een bestand sturen naar een zwart gat dus verwijdert het
+
+!! => voert het voerige commando uit
+
+!"letters" => voert het laatse commando uit dat met dioe voorwaarde voldoet dus bv !c zal gaan zoeken naar een commando dat begin met een c en dan dat commando uitovert
+
+historie => geeft een lijst van de commados die je getypt hebt je kan er ook een getal achter zetten om de lijst kleiner of groter te maken
+
+!"nummer" => als je historie getypt hebt staat ook voor elk commando een cijfer je kan ook !en dan dat cijfer vban het commando dat je wiltr dus bv !45 doet bv cd 
+
+$HISTSIZE => een varialbe waar het aantal commandos inzit. dit kan je aanpassen door HISTSIZE="getal"
+
+$HISTFILE => een variable die de history bij houd van de commandos die je hebt in getypt dit kan je op de zelfde manier weizigen
+
+$HISTFILESIZE => een variable die word onthouden in je geheugen ook dit kan aangepast worden
+
+!c:s/1/2 => dit is een voorbeeld van een commando dit commando doet get gaat terug naar een commando met een c en dan voert hij dat commando terug uit maar vervangt alle 1 en door 2
+
+ls File* => dit is een voorbeeld van een commando dit teken geeft alles met de naam File wat er ook achter staat zolang de eerst 4 char maar File zijn
+
+ls File? => dit is juist het zelfde maar dan ipv meerdere digne achter kan hier maar juist een char komen te staan.
+
+ls File[a-z] dit is juist het zelfde als een vraagteken maar hier maak je de selectie nog kleinr naar enkel een letter tussen a en z natuurlijk kan je dit ook een paar keer herhalen en of een selectie van letters pakken of met nummeers werken.
+
+$LANG => als je LANG = C zet dan kan je het boverstaande commando invoeren en dan werkt dat ook met hoofdletter gevoelig want van begin is dat geen verschil dus eerst LANG = C => en daarna gaat ls [a-z]ile en [A-Z]ile een ander resultaat geven wat eerst het zelfde zou zijn
+
+| => maakt gebruik van een pipe zo kan je de uivoer van een commando gebruiken als invoer voor een volgend commando dus door gebruik bv vzn tac count.txt | cat dat geeft dus de de uitvoer van het achterste voren count.txt
+
+tee => zet de output van het vorig commando in een bestand die je een naam geeft zo kan je dit bestand leter nog gebruiken dus bv tac count.txt | tee test.txt| cat test.txt dus hier zal tac count.txt en cat test.txt dezelfde output geven omdat het eigelijk een copie is
+
+grep => word gebruikt om te kunnen filteren hier kan je gebruik maken van verschillende zoals [aze] of door verschillende parameters
+grep-i => zo zoek je maar word er niet gekene naar hoofdletter gevoelig dus grep -i a test.txt zal alle lijnen met een a weergeven ook al zijn dat hoofdletters
+grep-v => zo zoek je naar alles behalve naar hetgene wat je ingeeeft dus als je ingeeft gerp -v a zal je aales krijgen waar geen a in zit dit kan je natuurlijkook combineren met het bovestaande commmando
+grep-A1 => zo zoek je naar iets maar de je zoekopdracht maar elke keer dat je er een lijn voldoet aan de voorwaarde zal er ook de volgende rij worden afgedrukt ook al bevat die niet de waardes die in de zoekopdracht ingegeven zijn.
+grep-B1 => zo zoek je naar iets naar de zoekopdracht maar elke keer dat je er een lijn voldoet aan de voorwaarde zal hij ook de vorige rij worden afgedrukt.
+grep-C1 => dit is eigelijk een combinatie van A1 en B1 je krijgt een lijn voor en een lijn na 
+
+cut =>dit commando word gebruikt om uit een grote tekst een bepaalt aantal record te halen dit doe je door cut dan -d daarna komt hoe je jescheiding steken wilt hebben dat kan een spatie zijn " " maar dit kan ook een ":" zijn daarna volgt in welke tab die wilt gaan kijken altijd te beinggne met een f en dna een cijfer dus bv f1,2,3 dan ga je tab 1 2 en 3 kijken en dan daarna de bestandnaam dus bv cut -d ":" f1,3 test5.txt
+dit commando kan je natuurlijk ook combineren met de pipes
+cut -c zo kan je gaan zoeken ok caracters ipv op tabbelen door cut -c2-7 test zo krijg je van alle lijnen alle tweede karacters tot de zevende karacters
+
+tr => zo kan je een charecter veranderen dus bv een a naar een o naar een hoofdletters of een dubble spatie naar een spatie. dit werkt ookt ùet de slectei dus bv tr [a-z] [A-Z] of enters door spaties dus tr '\n' '' hier 
+
+tr -s => zo kan je simpel meerder charcters verwijderen in een tekst bv meerder spaties bv tr -s ' ' zo gaat hij kijken als er meerdere spaties zijn gaat hij die vervangen door één spatie
+dit commando kan je dus ook gebruiken om een tekst te verleutelen door bv tr
+
+tr -d => met dit commando kan je ook caracters verwijderen dus kan je een stuk van de naam of een getal verwijdern dus bv tr -e verwijdered alle kleine letters e.
+
+wc -l => geeft de aantal lijnen in een bestand
+wc -w => geef het aantal woorden in een bestand
+wc -c => geef de groote van het bestand 
+
+sort => sorteert een bestand alfapbetis (dus als er enkel getallen instaan gaan ze niet van klein naar groot of van van groot naar klein staan) 
+sort -k1 => nu sorteer je op een kolom dit kan ook k2 of k3 zijn dus bv sort -k2 test.txt
+
+uniq => (als je dit commando wilt gebreuken moet er eerst een sort gebeurt zijn want anders werkt dit niet) dit commando zorgt er voor dat als er meerdere keren de zelfde regel hebt verwijdert hij alle regels totdat je er maar 1 meer over hebt.
+uniq -c => dit doet het zelfde als bovenstaant commando maar hier zet hij er cijfers voor de lijn een 1 wilt zeggen dat er maar een in stond en dus niets heeft verwijdert een 2 voor ....
+
+comm => laat de lijnen die uniek zijn in een bestand zijn daarna laat hij de lijnen zien die uniek zijn in dat tweede bestand en daarna geeft hij de lijnen die in beide bestanden voorkomen. dus bv comm test1 test2
+comm -1 => laat zien wat er in file 1 te zien is maar wel met uniq
+comm -2 => laat zien wat er in file 2 te zien is maar wel met uniq
+comm -3 => laat zien wat er in de bijde files uniqi is 
+(natuurlijk kan je ook de de verzshillnede commandos combineren bv zo is comm -12 gelijk aan comm -3)
+
+od -t xl => geeft de waarde van alle lettes in de file als ascci weer (dus hexadeciamaal)
+od -b => geeft de waarde ocataal waar
+od -c => laat een bestand zien elke letter appart en met spaties geschreven als een \n 
+
+sed => dit vervangt een character door een anders character dus bv sed 's/42/5/' hier word de 42 vervanen door een 5 maar als je meerder dingen wilt vervangen dan moet je sed 's/5/42/g' nu worden alle bestande die je voor de pipe hebt ingegeven waar er een 42 in zit vervangen door een 5
+ook hier kan je een lijnen verwijdern bv sed '/BE/d' verwijder je alle lijnen waar er BE in staat.
+(ook kunnen er andere tekens gebruikt worden ipv een / bv een : _ |)
+sed 's/sun/&&/' => vervangt het woord dat er gezocht word dus in dit geval sun en zet er dan dat gedeelte nog is voor dus sunsun (hoevaak dit herhaalt word hangt van het aantal & en af)
+echo Sunday  sed 's_\(Sun\)_\1ny_' => hier word Sun in het register 1 gestoken en weggehaalt waar het vandaan kwam daarna plak je Sun aan ny en daar ahcter zet je dan day
+echo Sunday  sed 's_\(Sun\)_\1ny_ \1' => hier word het zelfde gedaan maar hier word sun aan ny geplakt en aan day van het oorprokelijk woord
+echo 2014-04-01 | sed 's /\(....\)-\(..\)-\(..\)/\1+\2+\3/' => hier word de plaats van 2014 in het register 1 gestoken 04 in 2 en 01 in 3 daarna wordne die registers terug opgeroepen en wordne er plmussen toegevoegd dit konde natuurlijk ook streepjes of iets ander zijn
+ 
+
+who => laat zien wie er allemaal op de pc is aangelocht en wanneer
+who | wc -l => zegt hoeveel mensen er op dat moment zijn aangelogd
+who | cut -d' ' -f1 | sort => geeft het zelfde als gewoon who maar hier krijg je enkel de naam te zien van wie er is ingelogd
+who | cut -d' ' -f1 | sort | uniq => dit doet hetzelfde als bovenstaand commmando maar dit commando laat een gebruiker maar 1 keer zien als die meerder keren zou aangelogd zijn
+
+grep bash /etc/passwd | cut -d: -f1 => hier laat hij alle account zonder extra info zien die op de pc bevinden.
+
+echo it is cold today > winter.txt => door middel van gebruik te maken van de > zet je de uitvoer van een commado dat je doet in een bestand hiervoor moeten er wel geen fouten zitten in je commando
+
+set -o noclobber => met dit commando kan je er voor zorgen dat je geen bestandne overschrijft want elke keer als je een tekst in een bestand plaats met > overschijf je het bestand als je iets wil toevoegen moet je echo test >| test.txt hier voeg je test toe en verwijder je niet wat er al instond ook kan je iets toevoegen door gebruik te maken van >> ipv >
+set -C => dit doet juist hetzelfde als het commmando hier boven
+set +o noclobber => als je dit uitvoerd na -o dan kan je terug bestanden gaan overschijven
+set +C => dit commando doet juist hetzelfde als het commando hierboven
+2> => met 2> steek je alleen de error die je krijg in een bestand dit kan je natuurlijk ook zeggen dat allle errors naar de /dev/null moeten gestuurd worden (verwjidert worden dus)
+
+2>&1 => hier plaats je zowel de info die word word weergegeven dus de output en ook de errors die je krijgt samen in een bestand
+je kan dit ook door gebruiken met het pipe systeem dus als je rm test1 test2 test3 2>&1 | grep test2 dan krijg je enkel de foutboodschap van test2(in dit voorbeeld moeten dan natruuurmok test1,test2,test3 niet bestaan)
+
+&> => steekt zowel de info die goed is als de errors in een bestand dat je wilt 
+echo $- => laat de shell opties zien
+
+<<< => word gebruitk om een string in een command te gieten dus bv base64 <<< test.test
+(base64 <<< test.test is net het zelfde als echo test.test | base64)(het terug omzetten van een base64 word gedaan via base64 -d en de gegeven incryptie)
+
+soorten notatie van een commando met > 
+cat test.txt > test2.txt 2> error.txt 
+2> errors.txt cat test.txt > test2.txt
+< test.txt >test2.txt 2> errors.txt cat
+dit zijn alle drie commandos die werken alleen het ene is beter leesbaar  en makkelijker te lk 
+
+clear a file => echo > test.txt
+clear a file met noclobber => echo >| test.txt
+
+find /etc > etcfiles.txt => zoekt alle bestanden in een bepaalde folder en zet de namen van deze files in een file
+find . -name "*.conf" => gaat zoeken in een bepaalde map zoeken naar een stuk van de naam en toont die
+find . -type f => zoekt naar een bepaalt soort  van een bestand 
+c = character
+d = directory
+f = file
+find . -newer file42.txt
+find /data -name "test*" -exec cp {} test/ \; => maakt een ba
+find /data -name "test*" -ok rm {} \; => verwijderd alle files met test
+
+locate => geeft het pad van alle files die je zoekt 
+
+date => geeft de tijd weer in dag / maand / dag(cijfer) uur-minuten-seconde tijdzone - jaar
+je kan zelf ook kioezen wat je ingeeft door bv date +'%A %d-%m-%Y' => dag dag(nummer) - maand-jaar
+
+date +%s => de tijd in seconde vanaf 1 jan 1970
+
+date -d 'jaar-maand-dag + aantalsseconde seconds' => geeft de dag weer die je bekomt als je een aantal seconde bij een jaartal doet.
+
+cal 'maand' 'jaar' => geeft een kalender weer van de gekoze maand in een gekoze jaar zonder info is het de heudige maand en jaar
+
+sleep => het programma wacht de totaale sedconde dat je ingeeft
+
+time => zegt hoe lang een commando duurt eerst hoe lang het echt duurt dan voor de gebreuker  meestal 0 en daarna hoe lang de cpu nodig heeft voor het commando uit te voeren
+
+gzip => zipt een file naar een .gz file
+
+gunzip => unzipt een gzip zipfile
+
+zcat/zmore  => maakt het mogelijk om een gezipte gzip file te lezen die gezipt zijn met gzip
+
+bzip2 => kan een file een zipfile van maken dit duurt iets langer dan gzip maar de grote van het bestand word is wel kleiner
+
+bunzip2 => kan een bzip2 file unzippen 
+
+bzcat / bzmore => kan een bzip2 gezipte file lezen
+
+
+
+vi => vi kan gebruikt worden om een bestand aan te passen of een nieuw aan te maken dit is een belangrijk commado omdat er een heleboel opties zijn die dit vergemakelijker
+ esc => ga naar de command mode
+a => start typen na de huidige character
+A => start typen na het einde van de huidige lijn
+i => start typen voor de huidige charcter
+I => start typen voor de huidige lijn
+o => start typen op een nieuwe lijn na de huidge lijn
+O => start typen op een nieuwe lijn voor de huidige lijn
+x => verwijderd een charcter op de plek van de cursor
+X => verwijderd een charcter voor de cursor
+r => vervangt een charcter door een charcter dat je daarna ingeeft
+p => plakt na de cursor de laatse charcter die je verwijdert hebt
+xp => verwisselt twee charrers (snap dit nog inet goed)
+u => crtl -z in vi
+. => doet nog eens wat je laatse bewerking was bv nog een lijn plakken of een charter verwijdern
+dd => verwijdert de huidige lijn
+yy => kopieert de huidige lijn
+p => plakt iets (bv de lijn van yy) na de huidige lijn
+P => plakt iets voor de huidige lijn
+3dd => verwijdert 3 lijnen na de cursor (de 3 kan ook een ander getal zijn dan is het enkel anderrs voor de lijne)
+4yy => copyeert 4 lijnen na de cursor(zelfde als hier boven)
+0 => springt naar het begin van de huidige lijn
+^ => springt naar het begin van de huidige lijn
+$ => springt naar het einde van de huidige lijn
+d0 => verwijdert tot het begin van de huidige lijn
+d$ => verwijdert tot het einde van de huidige lijn
+J => voegt de volgende lijn toe aan de huiduge lijn 
+yyp => kopieert de huigdige lijn
+ddp => verwisselt twee lijnen(snap dit nog niet goed)
+w => gaat naar het begin van het volgend woord in dezelfde lijn
+b => gaat naar het begin van het vorigwoord in dezelfde lijn
+3w => gaat nar het begin van het woord 3 woorden verder(dit getal kan aangepast wordne)
+dw => verwijderd één woord
+yw => copieert één woord
+5yb => copieert 5 lijnen(als je het ook wilt plakken moet je wel nog p doen)
+7dw => verwijdert 7 woorden
+:w => bewaard het bestand
+:w fname => bewaard het bestand en hernoem het naar de naame die je geeft (de naam mag niet al in gebruik zijn)
+:q => ga uit de vi
+:wq => bewaar het bestand en ga er uit
+ZZ => bewaar het bestand en ga er uit
+:q! => ga uit het bestand zonder te bewaren (geforceert)
+:w! => bewaar het bestand en schrijft het na	ar een nietleesbaar bestandf( snap diet nog niet juist)
+/string => zoekt van u plaats naar beneden voor een bepaalt woord in uw tekstbestand
+?string => zoekt van u plaats naar boven voor een bepaalt woord in uw tekstbestand
+n => ga naar de volgede plaats waar het woord gevonden is
+:4,8 s/foo/bar/g => vervangt foor door bar op lijn 4 door lijn 8
+:1,$ s/foor/bar/g => vervangt foor door bar op alle lijnen
+:r fname => plakt de tekst van een bestand in het huiidige bastand
+:r !cmd => plakt de output van een command in je vi
+"add => verwijdert een lijn en zet die lijn in het register a
+"g7yy => copieert 7 lijnen en zet die in het register g
+"ap => print het a register
+vi file1 file2 file3 => maakt of opent meerdre bestanden in één keer
+:args => laat zien welke vi er op dat moment open staan
+:n => zo kan je naar het volgend bestand gaan dat open staat 
+:e => ga naar het laast aangepste document
+:rew => ga terug naar het eerste bestand
+:set number => geeft de relgenummersweer
+:set nonumber => geeft geen reglenummers weer
+
+grep => best altijd gebruik maken van grep -E
+grep -E 'i| a' test => zoekt naar alle lijnen met een i of een a in
+grep -E 'o*'test => zoekt naar 0,1,2,... van het teken in een bestand
+grep -E 'o+' test => zoekt naar 1,2,3,..... van het teken in een bestand
+grep -E a$ test => zoekt naar een lijn die eindigd met een a in een bestand
+grep -E ^Val test => zoekt naar een lijn die start met Val
+grep '\bover\b'test => zoekt naar alle lijnen waar het woord in voor komt
+grep -w => zoekt enkel naar een woord ipv letters in een woord
+grep -E 'ooo?' test => zoekt naar een lijn die 2 o's of 3 bevat want het ? zegt dat de laatse o niet moet maar het wel kan
+grep -E 'o{3}' test => zoekt een lijn die juist 3 o's bevat.
+grep -E 'o{2,3}' test => zoekt naar een lijn met twee of drie o's
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
